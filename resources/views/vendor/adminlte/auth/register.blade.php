@@ -82,6 +82,67 @@
                 </div>
             @endif
         </div>
+{{--        Date of Birth--}}
+        <div class="input-group mb-3">
+            <input type="date" name="dob" class="form-control {{ $errors->has('dob') ? 'is-invalid' : '' }}"
+                   value="{{ old('dob') }}" placeholder="Date of Birth" autofocus>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-calendar {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('dob'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('dob') }}</strong>
+                </div>
+            @endif
+        </div>
+{{--        Age--}}
+        <div class="input-group mb-3">
+            <input type="number" name="age" class="form-control {{ $errors->has('age') ? 'is-invalid' : '' }}"
+                   value="{{ old('age') }}" placeholder="Age" autofocus>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-calendar {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('age'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('age') }}</strong>
+                </div>
+            @endif
+        </div>
+{{--        Address--}}
+        <div class="input-group mb-3">
+            <input type="text" name="address" class="form-control {{ $errors->has('address') ? 'is-invalid' : '' }}"
+                   value="{{ old('address') }}" placeholder="Address" autofocus>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-location-arrow {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('address'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('address') }}</strong>
+                </div>
+            @endif
+        </div>
+{{--phone--}}
+        <div class="input-group mb-3">
+            <input type="text" name="phone" class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}"
+                   value="{{ old('phone') }}" placeholder="Phone" autofocus>
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-phone {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+            @if($errors->has('phone'))
+                <div class="invalid-feedback">
+                    <strong>{{ $errors->first('phone') }}</strong>
+                </div>
+            @endif
+        </div>
+
 
         {{-- Register button --}}
         <button type="submit" class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">

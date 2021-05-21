@@ -67,7 +67,15 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'dob' => $data['dob'],
+            'age' => $data['age'],
+            'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        return view('vendor.adminlte.auth.register');
     }
 }
