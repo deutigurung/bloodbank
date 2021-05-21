@@ -17,6 +17,11 @@ Route::get('/', function () {
     return view('frontend.main');
 });
 
+
+Route::get('/admin', function () {
+    return view('backend.index');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
