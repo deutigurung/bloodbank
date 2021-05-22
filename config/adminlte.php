@@ -311,11 +311,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Add Role',
-                    'url'  => '#',
+                    'url'  => 'role/create',
                 ],
                 [
                     'text' => 'List Role',
-                    'url'  => '#',
+                    'url'  => 'role',
                 ],
             ],
         ],
