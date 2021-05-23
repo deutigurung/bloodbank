@@ -297,11 +297,11 @@ return [
             'submenu' => [
                 [
                     'text' => 'Add User',
-                    'url'  => '#',
+                    'url'  => 'user/create',
                 ],
                 [
                     'text' => 'List User',
-                    'url'  => '#',
+                    'url'  => 'user',
                 ],
             ],
         ],
