@@ -22,6 +22,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //backend url
-Route::resource('role','RoleController')->middleware('auth');
-Route::resource('user','UserController')->middleware('auth');
-Route::resource('location','Backend\LocationController')->middleware('auth');
+Route::group(['middleware' => 'auth','namespace' => 'Backend'], function () {
+    Route::resource('role','RoleController');
+    Route::resource('user','UserController');
+    Route::resource('location','LocationController');
+});

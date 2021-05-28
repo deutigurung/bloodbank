@@ -26,8 +26,12 @@
                                 <td>{{ $role->id }}</td>
                                 <td>{{ $role->name }}</td>
                                 <td>
-                                    <a href="{{ route('role.edit',$role->id) }}" class="btn btn-success btn-sm">Edit</a>
-                                    <a href="{{ route('role.destroy',$role->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                    <form method="POST" action="{{ route('role.destroy',$role->id) }}" class="confirmation">
+                                        <input type="hidden" name="_method" value="DELETE" />
+                                        @csrf
+                                        <a href="{{ route('role.edit',$role->id) }}" class="btn btn-success btn-action btn-sm">{{ __('Edit') }}</a>
+                                        <button type="submit" title="Delete" class="btn btn-danger btn-action btn-sm">{{ __('Delete') }}</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -45,3 +49,13 @@
         </div>
     </div>
 @stop
+@section('adminlte_js')
+    <script>
+        $(document).ready(function () {
+            $('#example1').DataTable();
+            $(".confirmation").on("submit", function(){
+                return confirm("Are you sure want to delete?");
+            });
+        });
+    </script>
+@endsection
