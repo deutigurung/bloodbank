@@ -330,11 +330,19 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
-        ['header' => 'labels'],
+        ['header' => 'General Settings'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text' => 'Location',
+            'submenu' => [
+                [
+                    'text' => 'Add Location',
+                    'url'  => 'location/create',
+                ],
+                [
+                    'text' => 'List Location',
+                    'url'  => 'location',
+                ],
+            ],
         ],
         [
             'text'       => 'warning',
@@ -384,7 +392,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

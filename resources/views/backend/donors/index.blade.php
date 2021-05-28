@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Blood Bank | User')
+@section('title', 'Blood Bank | Donor')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">All User</h1>
+    <h1 class="m-0 text-dark">All Donor</h1>
 @stop
 
 @section('content')
@@ -38,12 +38,8 @@
                                 <td>{{ $user->gender }}</td>
                                 <td>{{ $user->phone }}</td>
                                 <td>
-                                    <form method="POST" action="{{ route('user.destroy',$user->id) }}" class="confirmation">
-                                        <input type="hidden" name="_method" value="DELETE" />
-                                        @csrf
-                                        <a href="{{ route('user.edit',$user->id) }}" class="btn btn-success btn-action btn-sm">{{ __('Edit') }}</a>
-                                        <button type="submit" title="Delete" class="btn btn-danger btn-action btn-sm">{{ __('Delete') }}</button>
-                                    </form>
+                                    <a href="{{ route('user.edit',$user->id) }}" class="btn btn-success btn-sm">Edit</a>
+                                    <a href="{{ route('user.destroy',$user->id) }}" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -67,13 +63,3 @@
         </div>
     </div>
 @stop
-@section('adminlte_js')
-    <script>
-        $(document).ready(function () {
-            $('#example1').DataTable();
-            $(".confirmation").on("submit", function(){
-                return confirm("Are you sure want to delete?");
-            });
-        });
-    </script>
-@endsection

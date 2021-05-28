@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Blood Bank | User')
+@section('title', 'Blood Bank | Location')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">All User</h1>
+    <h1 class="m-0 text-dark">All Location</h1>
 @stop
 
 @section('content')
@@ -16,32 +16,20 @@
                         <thead>
                         <tr>
                             <th>Id</th>
-                            <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Date of Birth</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Phone</th>
+                            <th>Name</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($users as $user)
+                        @foreach($locations as $location)
                             <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->address }}</td>
-                                <td>{{ $user->dob }}</td>
-                                <td>{{ $user->age }}</td>
-                                <td>{{ $user->gender }}</td>
-                                <td>{{ $user->phone }}</td>
+                                <td>{{ $location->id }}</td>
+                                <td>{{ $location->name }}</td>
                                 <td>
-                                    <form method="POST" action="{{ route('user.destroy',$user->id) }}" class="confirmation">
+                                    <form method="POST" action="{{ route('location.destroy',$location->id) }}" class="confirmation">
                                         <input type="hidden" name="_method" value="DELETE" />
                                         @csrf
-                                        <a href="{{ route('user.edit',$user->id) }}" class="btn btn-success btn-action btn-sm">{{ __('Edit') }}</a>
+                                        <a href="{{ route('location.edit',$location->id) }}" class="btn btn-success btn-action btn-sm">{{ __('Edit') }}</a>
                                         <button type="submit" title="Delete" class="btn btn-danger btn-action btn-sm">{{ __('Delete') }}</button>
                                     </form>
                                 </td>
@@ -51,13 +39,7 @@
                         <tfoot>
                         <tr>
                             <th>Id</th>
-                            <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Address</th>
-                            <th>Date of Birth</th>
-                            <th>Age</th>
-                            <th>Gender</th>
-                            <th>Phone</th>
+                            <th>Name</th>
                             <th>Actions</th>
                         </tr>
                         </tfoot>
