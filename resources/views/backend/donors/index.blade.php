@@ -19,27 +19,36 @@
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Address</th>
-                            <th>Date of Birth</th>
                             <th>Age</th>
+                            <th>Blood Group</th>
                             <th>Gender</th>
                             <th>Phone</th>
+                            <th>Parents</th>
                             <th>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($users as $user)
+                        @foreach($donors as $donor)
                             <tr>
-                                <td>{{ $user->id }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->address }}</td>
-                                <td>{{ $user->dob }}</td>
-                                <td>{{ $user->age }}</td>
-                                <td>{{ $user->gender }}</td>
-                                <td>{{ $user->phone }}</td>
+                                <td>{{ $donor->id }}</td>
+                                <td>{{ $donor->user->name }}</td>
+                                <td>{{ $donor->user->email }}</td>
                                 <td>
-                                    <a href="{{ route('user.edit',$user->id) }}" class="btn btn-success btn-sm">Edit</a>
-                                    <a href="{{ route('user.destroy',$user->id) }}" class="btn btn-danger btn-sm">Delete</a>
+                                    Permanent: {{ $donor->permanent_address }} ,<br>
+                                    Temporary: {{ $donor->temporary_address }}
+                                </td>
+                                <td>{{ $donor->user->age }}</td>
+                                <td>{{ $donor->blood_group }}</td>
+                                <td>{{ $donor->user->gender }}</td>
+                                <td>{{ $donor->user->phone }}</td>
+                                <td>{{ $donor->father_name ?: $donor->mother_name}}</td>
+                                <td>
+                                    <form method="POST" action="{{ route('donor.destroy',$donor->id) }}" class="confirmation">
+                                        <input type="hidden" name="_method" value="DELETE" />
+                                        @csrf
+                                        <a href="{{ route('donor.edit',$donor->id) }}" class="btn btn-success btn-action btn-sm">{{ __('Edit') }}</a>
+                                        <button type="submit" title="Delete" class="btn btn-danger btn-action btn-sm">{{ __('Delete') }}</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -50,10 +59,11 @@
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Address</th>
-                            <th>Date of Birth</th>
                             <th>Age</th>
+                            <th>Blood Group</th>
                             <th>Gender</th>
                             <th>Phone</th>
+                            <th>Parents</th>
                             <th>Actions</th>
                         </tr>
                         </tfoot>
@@ -63,3 +73,13 @@
         </div>
     </div>
 @stop
+@section('adminlte_js')
+<script>
+    $(document).ready(function () {
+        $('#example1').DataTable();
+        $(".confirmation").on("submit", function(){
+            return confirm("Are you sure want to delete?");
+        });
+    });
+</script>
+@endsection

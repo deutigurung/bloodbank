@@ -250,21 +250,21 @@ return [
         ],
         [
             'text'    => 'Donors',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-hand-holding-heart',
             'submenu' => [
                 [
                     'text' => 'Add Donor',
-                    'url'  => '#',
+                    'url'  => 'donor/create',
                 ],
                 [
                     'text'    => 'List Donor',
-                    'url'     => '#',
+                    'url'     => 'donor',
                 ],
             ],
         ],
         [
             'text'    => 'Volunteer',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-user',
             'submenu' => [
                 [
                     'text' => 'Add Volunter',
@@ -293,7 +293,7 @@ return [
         ['header' => 'User Management'],
         [
             'text' => 'User',
-            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-users-cog',
             'submenu' => [
                 [
                     'text' => 'Add User',
@@ -307,7 +307,7 @@ return [
         ],
         [
             'text' => 'Role',
-            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user-tag',
             'submenu' => [
                 [
                     'text' => 'Add Role',
@@ -322,17 +322,16 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'change_password',
-            'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
         ['header' => 'General Settings'],
         [
             'text' => 'Location',
+            'icon' => 'fas fa-fw fa-location-arrow',
             'submenu' => [
                 [
                     'text' => 'Add Location',
