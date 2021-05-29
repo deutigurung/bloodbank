@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <form role="form" class="form" method="post" action="{{ route('donor.store') }}">
+                <form role="form" class="form" method="post" action="{{ route('donor.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <h2 class="card-title">Personal Info</h2><br>
@@ -144,13 +144,10 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="image">Martial Status</label>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="martial_status" value="1">
-                                        <label for="martial_status" class="custom-control-label">Yes</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="martial_status" value="0" checked>
-                                        <label for="martial_status" class="custom-control-label">No</label>
+                                    <div class="custom-control">
+                                        <input class="" type="radio" name="martial_status" value="1"> Yes
+
+                                        <input class="" type="radio" name="martial_status" value="0"> No
                                     </div>
                                 </div>
                             </div>

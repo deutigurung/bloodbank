@@ -46,8 +46,9 @@
                                     <form method="POST" action="{{ route('donor.destroy',$donor->id) }}" class="confirmation">
                                         <input type="hidden" name="_method" value="DELETE" />
                                         @csrf
-                                        <a href="{{ route('donor.edit',$donor->id) }}" class="btn btn-success btn-action btn-sm">{{ __('Edit') }}</a>
-                                        <button type="submit" title="Delete" class="btn btn-danger btn-action btn-sm">{{ __('Delete') }}</button>
+                                        <a href="{{ route('donor.edit',$donor->id) }}" class="btn btn-success  btn-sm"><i class="fas fa-fw fa-pen"></i></a>
+                                        <a href="{{ route('donor.show',$donor->id) }}" class="btn btn-info btn-sm"><i class="fas fa-fw fa-eye"></i></a>
+                                        <button type="submit" title="Delete" class="btn btn-danger btn-sm"><i class="fas fa-fw fa-cut"></i></button>
                                     </form>
                                 </td>
                             </tr>

@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <form role="form" class="form" method="post" action="{{ route('donor.update',$donor->id) }}">
+                <form role="form" class="form" method="post" action="{{ route('donor.update',$donor->id) }}" enctype="multipart/form-data">
                     @csrf
                     {{ method_field('put') }}
                     <div class="card-body">
@@ -37,17 +37,6 @@
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('email') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" value="{{ old('password') }}" placeholder="Enter Password" autofocus>
-                                    @if ($errors->has('password'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('password') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -145,17 +134,14 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="image">Martial Status</label>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="martial_status" value="1" @if($donor->martial_status == 1) ? checked @endif>
-                                        <label for="martial_status" class="custom-control-label">Yes</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input class="custom-control-input" type="radio" name="martial_status" value="0" @if($donor->martial_status == 0) ? checked @endif>
-                                        <label for="martial_status" class="custom-control-label">No</label>
+                                    <div class="custom-control">
+                                        <input class="" type="radio" name="martial_status" value="1" @if($donor->martial_status == 1) ? checked @endif>Yes
+
+                                        <input class="" type="radio" name="martial_status" value="0" @if($donor->martial_status == 0) ? checked @endif>No
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-12">
+                            <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="martial_status">Image</label>
                                     <input type="file" name="image" class="form-control">

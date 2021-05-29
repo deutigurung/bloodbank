@@ -56,7 +56,7 @@ class DonorController extends Controller
             'blood_group' => 'required',
             'location' => 'required',
             'martial_status' => 'required',
-            'image' => 'nullable',
+            'image'           => 'nullable|mimes:jpg,jpeg,png|max:2060',
         ]);
         //dd($request->all());
         $user = User::create([
@@ -70,6 +70,13 @@ class DonorController extends Controller
             'gender'      => $request->get('gender'),
         ]);
 
+        if ($request->hasFile('image')) {
+            $file        = $request->file('image');
+            $extension   = $file->getClientOriginalExtension();
+            $destination = 'assets/uploads/donors';
+            $file_name   = 'donor-pic-' . $user->id . '.' . $extension;
+            $file->move($destination, $file_name);
+        }
         $donor = Donor::create([
             'permanent_address'      => $request->get('permanent_address'),
             'temporary_address'      => $request->get('temporary_address'),
@@ -79,6 +86,7 @@ class DonorController extends Controller
             'blood_group'      => $request->get('blood_group'),
             'location_id'      => $request->get('location'),
             'user_id'      => $user->id,
+            'image'    => $request->hasFile('image') ? $file_name : null,
             'status'      => 1,
         ]);
         return redirect()->route('donor.index')->with('success', 'Donor Added Successfully');
@@ -92,7 +100,8 @@ class DonorController extends Controller
      */
     public function show(Donor $donor)
     {
-        //
+        $donor = Donor::find($donor->id);
+        return view('backend.donors.show',compact('donor'));
     }
 
     /**
@@ -122,7 +131,6 @@ class DonorController extends Controller
             'permanent_address' => 'required|string|max:255',
             'temporary_address' => 'nullable|string|max:255',
             'email' => 'required|email|unique:users,email,'.$donor->user->id,
-            'password' => 'nullable|string', 'min:8',
             'dob' => 'required',
             'age' => 'nullable',
             'gender' => 'required',
@@ -132,10 +140,20 @@ class DonorController extends Controller
             'blood_group' => 'required',
             'location' => 'required',
             'martial_status' => 'required',
-            'image' => 'nullable',
+            'image'           => 'nullable|mimes:jpg,jpeg,png|max:2060',
         ]);
         //dd($request->all());
         $donor = Donor::find($donor->id);
+        if ($request->hasFile('image')) {
+            if (isset($donor->image) && app('files')->exists($donor->image)) {
+                app('files')->delete($donor->image);
+            }
+            $file        = $request->file('image');
+            $extension   = $file->getClientOriginalExtension();
+            $destination = 'assets/uploads/donors';
+            $file_name   = 'donor-pic-' . $donor->user->id . '.' . $extension;
+            $file->move($destination, $file_name);
+        }
         $donor->update([
             'father_name'       => $request->father_name,
             'mother_name'       => $request->mother_name,
@@ -143,9 +161,10 @@ class DonorController extends Controller
             'permanent_address' => $request->permanent_address,
             'blood_group'       => $request->blood_group,
             'location_id'       => $request->location,
-            'martial_status'    => $request->get('martial_status'),
-        ]);
+            'martial_status'    => $request->martial_status,
+            'image'    => $request->hasFile('image') ? $file_name : null,
 
+        ]);
         User::find($donor->user->id)->update([
             'name'  => $request->name,
             'email' => $request->email,
