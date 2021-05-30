@@ -68,6 +68,7 @@ class DonorController extends Controller
             'age'      => $request->get('age'),
             'phone'      => $request->get('phone'),
             'gender'      => $request->get('gender'),
+            'role'      => 'donor',
         ]);
 
         if ($request->hasFile('image')) {
@@ -145,9 +146,9 @@ class DonorController extends Controller
         //dd($request->all());
         $donor = Donor::find($donor->id);
         if ($request->hasFile('image')) {
-            if (isset($donor->image) && app('files')->exists($donor->image)) {
-                app('files')->delete($donor->image);
-            }
+            //if (isset($donor->image) && app('files')->exists($donor->image)) {
+            //    app('files')->delete($donor->image);
+            //}
             $file        = $request->file('image');
             $extension   = $file->getClientOriginalExtension();
             $destination = 'assets/uploads/donors';
@@ -162,7 +163,7 @@ class DonorController extends Controller
             'blood_group'       => $request->blood_group,
             'location_id'       => $request->location,
             'martial_status'    => $request->martial_status,
-            'image'    => $request->hasFile('image') ? $file_name : null,
+            'image'    => $request->hasFile('image') ? $file_name : $donor->image,
 
         ]);
         User::find($donor->user->id)->update([
@@ -173,6 +174,7 @@ class DonorController extends Controller
             'phone' => $request->phone,
             'address' => $request->permanent_address,
             'gender' => $request->gender,
+            'role' => 'donor',
         ]);
         return redirect()->route('donor.index')->with('success', 'Donor Update Successfully');
     }

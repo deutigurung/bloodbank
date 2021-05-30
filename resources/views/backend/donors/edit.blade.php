@@ -144,7 +144,12 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label for="martial_status">Image</label>
-                                    <input type="file" name="image" class="form-control">
+                                    <input type="file" name="image" class="form-control" value="{{ asset('assets/uploads/donors/'.$donor->image) }}">
+                                    @if(isset($donor->image))
+                                        <img class="profile-user-img img-fluid img-circle"
+                                             src="{{ asset('assets/uploads/donors/'.$donor->image) }}"
+                                             alt="User profile picture">
+                                    @endif
                                 </div>
                             </div>
                         </div>

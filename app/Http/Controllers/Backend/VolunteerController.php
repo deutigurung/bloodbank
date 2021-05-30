@@ -70,6 +70,7 @@ class VolunteerController extends Controller
             'age'      => $request->get('age'),
             'phone'      => $request->get('phone'),
             'gender'      => $request->get('gender'),
+            'role'      => 'volunteer',
         ]);
 
         if ($request->hasFile('image')) {
@@ -151,9 +152,9 @@ class VolunteerController extends Controller
         //dd($request->all());
         $volunteer = Volunteer::find($volunteer->id);
         if ($request->hasFile('image')) {
-            if (isset($volunteer->image) && app('files')->exists($volunteer->image)) {
-                app('files')->delete($volunteer->image);
-            }
+            //if (isset($volunteer->image) && app('files')->exists($volunteer->image)) {
+            //    app('files')->delete($volunteer->image);
+            //}
             $file        = $request->file('image');
             $extension   = $file->getClientOriginalExtension();
             $destination = 'assets/uploads/volunteers';
@@ -170,7 +171,7 @@ class VolunteerController extends Controller
             'permanent_address' => $request->permanent_address,
             'blood_group'       => $request->blood_group,
             'location_id'       => $request->location,
-            'image'    => $request->hasFile('image') ? $file_name : null,
+            'image'    => $request->hasFile('image') ? $file_name : $volunteer->image,
         ]);
         User::find($volunteer->user->id)->update([
             'name'  => $request->name,
@@ -180,6 +181,7 @@ class VolunteerController extends Controller
             'phone' => $request->phone,
             'address' => $request->permanent_address,
             'gender' => $request->gender,
+            'role'      => 'volunteer',
         ]);
         return redirect()->route('volunteer.index')->with('success', 'Volunteer Update Successfully');
     }
