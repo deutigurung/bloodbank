@@ -242,11 +242,11 @@ return [
             'text' => 'search',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Dashboard',
+            'url'         => '/home',
+            'icon'        => 'nav-icon fas fa-tachometer-alt',
+            //'label'       => 4,
+            //'label_color' => 'success',
         ],
         [
             'text'    => 'Donors',
