@@ -267,26 +267,48 @@ return [
             'icon'    => 'fas fa-fw fa-user',
             'submenu' => [
                 [
-                    'text' => 'Add Volunter',
+                    'text' => 'Add Volunteer',
                     'url'  => 'volunteer/create',
                 ],
                 [
-                    'text'    => 'List Volunter',
+                    'text'    => 'List Volunteer',
                     'url'     => 'volunteer',
                 ],
             ],
         ],
         [
             'text'    => 'Blog Management',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-fw fa-blog',
             'submenu' => [
                 [
-                    'text' => 'Add Blog',
-                    'url'  => '#',
+                    'text'    => 'Blog Category',
+                    'icon'    => 'fas fa-fw fa-tags',
+                    'url'     => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'Add Blog Category',
+                            'url'  => 'blogCategory/create',
+                        ],
+                        [
+                            'text'    => 'List Blog Category',
+                            'url'     => 'blogCategory',
+                        ],
+                    ],
                 ],
                 [
-                    'text'    => 'List Blog',
+                    'text'    => 'Blog',
                     'url'     => '#',
+                    'icon'    => 'fas fa-fw fa-newspaper',
+                    'submenu' => [
+                        [
+                            'text' => 'Add Blog',
+                            'url'  => 'blog/create',
+                        ],
+                        [
+                            'text'    => 'List Blog',
+                            'url'     => 'blog',
+                        ],
+                    ],
                 ],
             ],
         ],

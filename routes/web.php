@@ -28,4 +28,6 @@ Route::group(['middleware' => 'auth','namespace' => 'Backend'], function () {
     Route::resource('location','LocationController');
     Route::resource('donor','DonorController');
     Route::resource('volunteer','VolunteerController');
+    Route::resource('blogCategory','BlogCategoryController');
+    Route::resource('blog','BlogController');
 });
