@@ -30,6 +30,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 //backend url
 Route::group(['middleware' => 'auth','namespace' => 'Backend'], function () {
     Route::resource('role','RoleController');
+    Route::get('profile','UserController@profile');
+    Route::post('changePassword','UserController@changePassword')->name('user.changePassword');
     Route::resource('user','UserController');
     Route::resource('location','LocationController');
     Route::resource('donor','DonorController');

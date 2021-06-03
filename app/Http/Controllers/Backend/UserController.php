@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->get();
+        $users = User::where('id','!=',1)->latest()->get();
         return view('backend.users.index',compact('users'));
     }
 
@@ -132,5 +132,22 @@ class UserController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect()->route('user.index')->with('success', 'User Deleted Successfully');
+    }
+
+    public function profile()
+    {
+        $user = auth()->id();
+        $user = User::find($user);
+        return view('backend.users.profile',compact('user'));
+    }
+    public function changePassword(Request $request)
+    {
+        $validatedData = $request->validate([
+            'password' => 'required', 'string', 'min:8','confirmed',
+        ]);
+        $user = User::find($request->user);
+        $user->password = Hash::make($request->get('password'));
+        $user->save();
+        return redirect()->back()->with('success', 'Password Change Successfully');
     }
 }

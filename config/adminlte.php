@@ -350,12 +350,7 @@ return [
         [
             'text' => 'profile',
             'icon' => 'fas fa-fw fa-user',
-            'url'        => '#',
-        ],
-        [
-            'text' => 'change_password',
-            'icon' => 'fas fa-fw fa-lock',
-            'url'        => '#',
+            'url'        => 'profile',
         ],
         ['header' => 'General Settings'],
         [
