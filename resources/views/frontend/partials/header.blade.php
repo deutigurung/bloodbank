@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Blood Bank Management System</title>
+    <link rel="shortcut icon" href="" type="image/x-icon">
+    <link href="{{ asset('assets/css/style2.css') }}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min(1).css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/fontawsom-all.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/grid-gallery.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
+</head>
+
+<body>
 <header class="continer-fluid ">
     <div class="header-top">
         <div class="container">

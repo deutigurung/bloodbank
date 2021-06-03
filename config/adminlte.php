@@ -312,6 +312,11 @@ return [
                 ],
             ],
         ],
+        [
+            'text'    => 'Contact List',
+            'icon' => 'fas fa-fw fa-file-contract',
+            'url'     => 'contacts',
+        ],
         ['header' => 'User Management'],
         [
             'text' => 'User',
@@ -345,10 +350,12 @@ return [
         [
             'text' => 'profile',
             'icon' => 'fas fa-fw fa-user',
+            'url'        => '#',
         ],
         [
             'text' => 'change_password',
             'icon' => 'fas fa-fw fa-lock',
+            'url'        => '#',
         ],
         ['header' => 'General Settings'],
         [

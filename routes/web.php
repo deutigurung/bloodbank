@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.main');
-});
+//Route::get('/', function () {
+//    return view('frontend.main');
+//});
+Route::get('/', 'FrontendController@index')->name('frontend');
+Route::get('/donor-form', 'FrontendController@donorForm')->name('donorForm');
+Route::post('/donor-form', 'FrontendController@donorStore')->name('donorStore');
+Route::get('/search-blood', 'FrontendController@searchBloodForm')->name('searchBloodForm');
+Route::post('/search-blood', 'FrontendController@searchBloodStore')->name('searchBloodStore');
+Route::post('/contact-store', 'FrontendController@contactStore')->name('contactStore');
 
 Auth::routes();
 
@@ -30,4 +36,5 @@ Route::group(['middleware' => 'auth','namespace' => 'Backend'], function () {
     Route::resource('volunteer','VolunteerController');
     Route::resource('blogCategory','BlogCategoryController');
     Route::resource('blog','BlogController');
+    Route::get('contacts','ContactController@index')->name('contacts.index');
 });

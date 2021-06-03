@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Blood Bank Management System</title>
-    <link rel="shortcut icon" href="" type="image/x-icon">
-    <link href="{{ asset('assets/css/style2.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min(1).css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/fontawsom-all.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/grid-gallery.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css')}}">
-</head>
-
-<body>
 @include('frontend.partials.header')
 
 <!-- ################# Slider Starts Here#######################--->
@@ -36,9 +20,8 @@
                         sed sagittis at, sagittis quis neque. Praesent.</p>
 
                     <div class=" vbh">
-
-                        <div class="btn btn-success  bounceInUp"> Book Appointment</div>
-                        <div class="btn btn-success  bounceInUp"> Contact US</div>
+                        <div class="btn btn-success  bounceInUp"><a href="{{ route('donorForm') }}" target="_blank">Donate Now</a></div>
+                        <div class="btn btn-success  bounceInUp"><a href="{{ route('searchBloodForm') }}" target="_blank"> Search Blood</a></div>
                     </div>
                 </div>
             </div>
@@ -52,9 +35,8 @@
                         sed sagittis at, sagittis quis neque. Praesent.</p>
 
                     <div class=" vbh">
-
-                        <div class="btn btn-danger  bounceInUp"> Donate Now</div>
-                        <div class="btn btn-danger  bounceInUp"> Contact US</div>
+                        <div class="btn btn-success  bounceInUp"><a href="{{ route('donorForm') }}" target="_blank">Donate Now</a></div>
+                        <div class="btn btn-success  bounceInUp"><a href="{{ route('searchBloodForm') }}" target="_blank"> Search Blood</a></div>
                     </div>
                 </div>
             </div>
@@ -210,15 +192,15 @@
                 consectetur adipiscing elit.</p>
         </div>
         <div class="row news-row">
+            @foreach($blogs as $blog)
             <div class="col-md-6">
                 <div class="news-card">
                     <div class="image">
                         <img src="{{ asset('assets/images/blog_01.jpg')}}" alt="">
                     </div>
                     <div class="detail">
-                        <h3>Latest News about Smarteye</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit
-                            consectetur adipiscing elit. </p>
+                        <h3>{{ $blog->name }}</h3>
+                        <p>{{ $blog->description }}</p>
                         <p class="footp">
                             27 Comments <span>/</span>
                             Blog Design <span>/</span>
@@ -227,68 +209,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="news-card">
-                    <div class="image">
-                        <img src="{{ asset('assets/images/blog_02.jpg')}}" alt="">
-                    </div>
-                    <div class="detail">
-                        <h3>Apple Launch its New Phone</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit
-                            consectetur adipiscing elit. </p>
-                        <p class="footp">
-                            27 Comments <span>/</span>
-                            Blog Design <span>/</span>
-                            Read More
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="news-card">
-                    <div class="image">
-                        <img src="{{ asset('assets/images/blog_03.jpg')}}" alt="">
-                    </div>
-                    <div class="detail">
-                        <h3>About Windows 10 Update</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit
-                            consectetur adipiscing elit. </p>
-                        <p class="footp">
-                            27 Comments <span>/</span>
-                            Blog Design <span>/</span>
-                            Read More
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="news-card">
-                    <div class="image">
-                        <img src="{{ asset('assets/images/blog_04.jpg')}}" alt="">
-                    </div>
-                    <div class="detail">
-                        <h3>Latest News about Smarteye</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fringilla vel nisl a dictum. Donec ut est arcu. Donec hendrerit
-                            consectetur adipiscing elit. </p>
-                        <p class="footp">
-                            27 Comments <span>/</span>
-                            Blog Design <span>/</span>
-                            Read More
-                        </p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
 
 @include('frontend.partials.footer')
-
-<script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ asset('assets/js/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/grid-gallery.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery-scrolltofixed-min.js') }}"></script>
-<script src="{{ asset('assets/js/script.js') }}"></script>
-</body>
-</html>

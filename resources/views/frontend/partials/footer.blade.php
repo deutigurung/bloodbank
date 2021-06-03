@@ -61,13 +61,17 @@
                     <div class="form-title">
                         <h4>Quick Message</h4>
                     </div>
-                    <div class="form-body">
-                        <input type="text" placeholder="Enter Name" class="form-control">
-                        <input type="text" placeholder="Enter Mobile no" class="form-control">
-                        <input type="text" placeholder="Enter Email Address" class="form-control">
-                        <input type="text" placeholder="Your Message" class="form-control">
-                        <button class="btn btn-sm btn-primary w-100">Send Request</button>
-                    </div>
+                    @include('layouts.notification')
+                    <form method="post" action="{{ route('contactStore') }}">
+                        @csrf
+                        <div class="form-body">
+                            <input type="text" placeholder="Enter Name" name="name" class="form-control">
+                            <input type="text" placeholder="Enter Mobile no" name="phone" class="form-control">
+                            <input type="text" placeholder="Enter Email Address" name="email" class="form-control">
+                            <input type="text" placeholder="Your Message" name="message" class="form-control">
+                            <button class="btn btn-sm btn-primary w-100" type="submit">Send Request</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -89,3 +93,11 @@
         </div>
     </div>
 </footer>
+<script src="{{ asset('assets/js/jquery-3.2.1.min.js') }}"></script>
+<script src="{{ asset('assets/js/popper.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/grid-gallery.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery-scrolltofixed-min.js') }}"></script>
+<script src="{{ asset('assets/js/script.js') }}"></script>
+</body>
+</html>
