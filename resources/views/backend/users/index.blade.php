@@ -19,8 +19,8 @@
                             <th>Full Name</th>
                             <th>Email</th>
                             <th>Address</th>
-                            <th>Date of Birth</th>
                             <th>Age</th>
+                            <th>Role</th>
                             <th>Gender</th>
                             <th>Phone</th>
                             <th>Actions</th>
@@ -33,8 +33,8 @@
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->address }}</td>
-                                <td>{{ $user->dob }}</td>
                                 <td>{{ $user->age }}</td>
+                                <td><span class="btn btn-outline-info btn-sm">{{ $user->role }}</span></td>
                                 <td>{{ $user->gender }}</td>
                                 <td>{{ $user->phone }}</td>
                                 <td>
