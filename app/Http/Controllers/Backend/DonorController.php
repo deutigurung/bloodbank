@@ -55,7 +55,6 @@ class DonorController extends Controller
             'mother_name' => 'nullable',
             'blood_group' => 'required',
             'location' => 'required',
-            'martial_status' => 'required',
             'image'           => 'nullable|mimes:jpg,jpeg,png|max:2060',
         ]);
         //dd($request->all());
@@ -82,7 +81,6 @@ class DonorController extends Controller
             'temporary_address'      => $request->get('temporary_address'),
             'father_name'      => $request->get('father_name'),
             'mother_name'      => $request->get('mother_name'),
-            'martial_status'      => $request->get('martial_status'),
             'blood_group'      => $request->get('blood_group'),
             'location_id'      => $request->get('location'),
             'user_id'      => $user->id,
@@ -139,7 +137,6 @@ class DonorController extends Controller
             'mother_name' => 'nullable',
             'blood_group' => 'required',
             'location' => 'required',
-            'martial_status' => 'required',
             'image'           => 'nullable|mimes:jpg,jpeg,png|max:2060',
         ]);
         //dd($request->all());
@@ -161,7 +158,6 @@ class DonorController extends Controller
             'permanent_address' => $request->permanent_address,
             'blood_group'       => $request->blood_group,
             'location_id'       => $request->location,
-            'martial_status'    => $request->martial_status,
             'image'    => $request->hasFile('image') ? $file_name : $donor->image,
 
         ]);

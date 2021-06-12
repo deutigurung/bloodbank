@@ -66,12 +66,6 @@
                     <p class="text-muted">Temporary: {{ $donor->temporary_address }}</p>
 
                     <hr>
-
-                    <strong><i class="fas fa-pencil-alt mr-1"></i> Martial Status</strong>
-
-                    <p class="text-muted"> @if($donor->martial_status == 1)  Married @else Unmarried @endif </p>
-
-                    <hr>
                 </div>
                 <!-- /.card-body -->
             </div>

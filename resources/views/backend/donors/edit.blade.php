@@ -133,17 +133,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="image">Martial Status</label>
-                                    <div class="custom-control">
-                                        <input class="" type="radio" name="martial_status" value="1" @if($donor->martial_status == 1) ? checked @endif>Yes
-
-                                        <input class="" type="radio" name="martial_status" value="0" @if($donor->martial_status == 0) ? checked @endif>No
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="martial_status">Image</label>
+                                    <label for="image">Image</label>
                                     <input type="file" name="image" class="form-control" value="{{ asset('assets/uploads/donors/'.$donor->image) }}">
                                     @if(isset($donor->image))
                                         <img class="profile-user-img img-fluid img-circle"

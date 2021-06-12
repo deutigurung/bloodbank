@@ -144,7 +144,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="martial_status">Image</label>
+                                    <label for="image">Image</label>
                                     <input type="file" name="image" class="form-control" value="{{ asset('assets/uploads/volunteers/'.$volunteer->image) }}">
                                     @if(isset($volunteer->image))
                                         <img class="profile-user-img img-fluid img-circle"

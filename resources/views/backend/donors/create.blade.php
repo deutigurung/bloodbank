@@ -141,19 +141,9 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="image">Martial Status</label>
-                                    <div class="custom-control">
-                                        <input class="" type="radio" name="martial_status" value="1"> Yes
-
-                                        <input class="" type="radio" name="martial_status" value="0"> No
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="martial_status">Image</label>
+                                    <label for="image">Image</label>
                                    <input type="file" name="image" class="form-control">
                                 </div>
                             </div>

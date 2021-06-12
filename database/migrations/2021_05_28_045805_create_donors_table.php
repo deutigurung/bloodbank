@@ -21,7 +21,6 @@ class CreateDonorsTable extends Migration
             $table->text('permanent_address')->nullable();
             $table->string('image')->nullable();
             $table->string('blood_group');
-            $table->boolean('martial_status')->default(0);
             $table->integer('blood_donate_count',false,true)->default(0);
             $table->integer('status',false,true)->default(0);
             $table->unsignedBigInteger('location_id');

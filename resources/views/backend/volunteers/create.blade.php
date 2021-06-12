@@ -154,7 +154,7 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="martial_status">Image</label>
+                                    <label for="image">Image</label>
                                     <input type="file" name="image" class="form-control">
                                 </div>
                             </div>

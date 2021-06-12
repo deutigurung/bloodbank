@@ -15,7 +15,6 @@ class Donor extends Model
         'temporary_address',
         'permanent_address',
         'image',
-        'martial_status',
         'blood_group',
         'location_id',
         'blood_donate_count',
