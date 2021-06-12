@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('id','=',1)->latest()->get();
+        $users = User::latest()->get();
         return view('backend.users.index',compact('users'));
     }
 
@@ -29,7 +29,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('backend.users.create');
+        $roles = Role::all();
+        return view('backend.users.create',compact('roles'));
     }
 
     /**
@@ -61,6 +62,7 @@ class UserController extends Controller
             'phone'      => $request->get('phone'),
             'gender'      => $request->get('gender'),
         ]);
+        $users->assignRole($request->get('role'));
 
         return redirect()->route('user.index')->with('success', 'User Added Successfully');
     }
@@ -86,8 +88,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $roles = Role::all();
-        $userRole = $user->roles->pluck('id','id')->all();
-        return view('backend.users.edit',compact('user','roles','userRole'));
+        return view('backend.users.edit',compact('user','roles'));
     }
 
     /**

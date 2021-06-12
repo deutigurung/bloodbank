@@ -68,9 +68,8 @@ class DonorController extends Controller
             'age'      => $request->get('age'),
             'phone'      => $request->get('phone'),
             'gender'      => $request->get('gender'),
-            'role'      => 'donor',
         ]);
-
+        $user->assignRole('donor');
         if ($request->hasFile('image')) {
             $file        = $request->file('image');
             $extension   = $file->getClientOriginalExtension();
@@ -166,7 +165,7 @@ class DonorController extends Controller
             'image'    => $request->hasFile('image') ? $file_name : $donor->image,
 
         ]);
-        User::find($donor->user->id)->update([
+        $user = User::find($donor->user->id)->update([
             'name'  => $request->name,
             'email' => $request->email,
             'dob' => $request->dob,
@@ -174,8 +173,8 @@ class DonorController extends Controller
             'phone' => $request->phone,
             'address' => $request->permanent_address,
             'gender' => $request->gender,
-            'role' => 'donor',
         ]);
+        $user->assignRole('donor');
         return redirect()->route('donor.index')->with('success', 'Donor Update Successfully');
     }
 

@@ -70,8 +70,8 @@ class VolunteerController extends Controller
             'age'      => $request->get('age'),
             'phone'      => $request->get('phone'),
             'gender'      => $request->get('gender'),
-            'role'      => 'volunteer',
         ]);
+        $user->assignRole('volunteer');
 
         if ($request->hasFile('image')) {
             $file        = $request->file('image');
@@ -173,7 +173,7 @@ class VolunteerController extends Controller
             'location_id'       => $request->location,
             'image'    => $request->hasFile('image') ? $file_name : $volunteer->image,
         ]);
-        User::find($volunteer->user->id)->update([
+        $user = User::find($volunteer->user->id)->update([
             'name'  => $request->name,
             'email' => $request->email,
             'dob' => $request->dob,
@@ -181,8 +181,8 @@ class VolunteerController extends Controller
             'phone' => $request->phone,
             'address' => $request->permanent_address,
             'gender' => $request->gender,
-            'role'      => 'volunteer',
         ]);
+        $user->assignRole('volunteer');
         return redirect()->route('volunteer.index')->with('success', 'Volunteer Update Successfully');
     }
 

@@ -88,7 +88,7 @@
                             <label for="role">Role</label>
                             <select class="form-control" name="role">
                                 @foreach($roles as $role)
-                                    <option value="{{$role->id}}" @if($user->hasRoles == $role->id) ? selected @endif>{{ $role->name }}</option>
+                                    <option value="{{$role->id}}" @if($user->roles[0]->id === $role->id) ? selected @endif>{{ $role->name }}</option>
                                 @endforeach
                             </select>
                         </div>
