@@ -7,8 +7,8 @@
                     Join Us
                 </h3>
             </div>
+            @include('layouts.notification')
             <div class="row">
-                @include('layouts.notification')
                 <div class="col-12">
                     <div class="card">
                         <form role="form" class="form" method="post" action="{{ route('joinRequest') }}" enctype="multipart/form-data">
@@ -143,80 +143,6 @@
                                         <div class="form-group">
                                             <label for="martial_status">Image</label>
                                             <input type="file" name="image" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <h2 class="card-title">Parent Info</h2><br>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="father_name">Father Name</label>
-                                            <input id="father_name" type="text" class="form-control{{ $errors->has('father_name') ? ' is-invalid' : '' }}" name="father_name" value="{{ old('father_name') }}" placeholder="Enter Father Name" autofocus>
-                                            @if ($errors->has('father_name'))
-                                                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('father_name') }}</strong>
-                                        </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="mother_name">Mother Name</label>
-                                            <input id="mother_name" type="text" class="form-control{{ $errors->has('mother_name') ? ' is-invalid' : '' }}" name="mother_name" value="{{ old('mother_name') }}" placeholder="Enter Mother Name" autofocus>
-                                            @if ($errors->has('mother_name'))
-                                                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('mother_name') }}</strong>
-                                        </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                <h2 class="card-title">Social Media Info <span class="small">(Optional)</span></h2>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="facebook">Facebook</label>
-                                            <input id="facebook" type="text" class="form-control{{ $errors->has('facebook') ? ' is-invalid' : '' }}" name="facebook" value="{{ old('facebook') }}" placeholder=" Facebook" autofocus>
-                                            @if ($errors->has('facebook'))
-                                                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('facebook') }}</strong>
-                                        </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="twitter">Twitter</label>
-                                            <input id="twitter" type="text" class="form-control{{ $errors->has('twitter') ? ' is-invalid' : '' }}" name="twitter" value="{{ old('twitter') }}" placeholder=" Twitter" autofocus>
-                                            @if ($errors->has('twitter'))
-                                                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('twitter') }}</strong>
-                                        </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="instagram">Instagram</label>
-                                            <input id="instagram" type="text" class="form-control{{ $errors->has('instagram') ? ' is-invalid' : '' }}" name="instagram" value="{{ old('instagram') }}" placeholder=" Instagram" autofocus>
-                                            @if ($errors->has('instagram'))
-                                                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('instagram') }}</strong>
-                                        </span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="linkedin">Linkedin</label>
-                                            <input id="linkedin" type="text" class="form-control{{ $errors->has('linkedin') ? ' is-invalid' : '' }}" name="linkedin" value="{{ old('linkedin') }}" placeholder=" Linkedin" autofocus>
-                                            @if ($errors->has('linkedin'))
-                                                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('linkedin') }}</strong>
-                                        </span>
-                                            @endif
                                         </div>
                                     </div>
                                 </div>
