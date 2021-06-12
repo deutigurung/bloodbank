@@ -1,62 +1,74 @@
-@extends('adminlte::page')
-
-@section('title', 'Blood Bank | Blog')
-
-@section('content_header')
-    <h1 class="m-0 text-dark">Add Blog</h1>
-@stop
-
-@section('content')
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <form role="form" class="form" method="post" action="{{ route('blog.store') }}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="Enter Full Name" autofocus>
-                                    @if ($errors->has('name'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="blog_category">Blog Category</label>
-                                    <select class="form-control select2" name="blog_category">
-                                        @foreach($blogCategories as $blogCategory)
-                                            <option value="{{ $blogCategory->id }}">{{ $blogCategory->name }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="description">Description</label>
-                                    <textarea name="description" class="form-control"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="image">Image</label>
-                                    <input type="file" name="image" class="form-control">
-                                </div>
-                            </div>
-
-                        </div>
+@include('frontend.partials.header')
+<div class="container">
+    <div class="register-box" style="padding-top: 50px; padding-bottom: 110px;">
+        <h3> Search Blood Group </h3>
+        <form class="form" action="{{ route('searchBloodStore') }}" method="post">
+            @csrf
+            <div class="row">
+                <div class="col">
+                    <select name="blood_group"  id="blood_group" class="form-control select2">
+                        <option value="o+">O+</option>
+                        <option value="o-">O-</option>
+                        <option value="b+">B+</option>
+                        <option value="b-">B-</option>
+                        <option value="a+">A+</option>
+                        <option value="a-">A-</option>
+                        <option value="ab+">AB+</option>
+                        <option value="ab-">AB-</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                </div>
+            </div>
+        </form>
+        @if(count($donors)>0)
+        <div class="card card-outline card-primary">
+            <div class="card-header " style="background-color: #495057; color: #ffffff">
+            <h3 class="card-title">
+                    Donor Lists
+                </h3>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Age</th>
+                                <th>Blood Group</th>
+                                <th>Gender</th>
+                                <th>Phone</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($donors as $data)
+                                <tr>
+                                    <td>{{ $data->user->name }}</td>
+                                    <td>{{ $data->user->email }}</td>
+                                    <td>
+                                        Permanent: {{ $data->permanent_address }} ,<br>
+                                        Temporary: {{ $data->temporary_address }}
+                                    </td>
+                                    <td>{{ $data->user->age }}</td>
+                                    <td>{{ $data->blood_group }}</td>
+                                    <td>{{ $data->user->gender }}</td>
+                                    <td>{{ $data->user->phone }}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
                     </div>
-                    <!-- /.card-body -->
-
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
+        @else
+            <p>Sorry ! Blood Group Donor Not Found. </p>
+        @endif
     </div>
-@stop
+
+</div>
+@include('frontend.partials.footer')

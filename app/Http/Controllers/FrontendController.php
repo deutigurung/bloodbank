@@ -19,11 +19,13 @@ class FrontendController extends Controller
         return view('frontend.main',compact('blogs','users'));
     }
 
-    public function joinForm(){
+    public function joinForm()
+    {
         return view('frontend.form');
     }
 
-    public function joinRequest(Request $request){
+    public function joinRequest(Request $request)
+    {
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'permanent_address' => 'required|string|max:255',
@@ -93,15 +95,20 @@ class FrontendController extends Controller
         return redirect()->back()->with('success', ' Register Successful. Please waiting for approval');
     }
 
-    public function searchBloodForm(){
-        return view('frontend.blood-search');
+    public function searchBloodForm()
+    {
+        $donors = [];
+        return view('frontend.blood-search',compact('donors'));
     }
 
-    public function searchBloodStore(Request $request){
-
+    public function searchBloodStore(Request $request)
+    {
+        $donors = Donor::where('blood_group',$request->get('blood_group'))->where('status',1)->get();
+        return view('frontend.blood-search',compact('donors'));
     }
 
-    public function contactStore(Request $request){
+    public function contactStore(Request $request)
+    {
         //dd($request->all());
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
