@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -16,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::where('id','!=',1)->latest()->get();
+        $users = User::where('id','=',1)->latest()->get();
         return view('backend.users.index',compact('users'));
     }
 
@@ -83,7 +85,9 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('backend.users.edit',compact('user'));
+        $roles = Role::all();
+        $userRole = $user->roles->pluck('id','id')->all();
+        return view('backend.users.edit',compact('user','roles','userRole'));
     }
 
     /**
@@ -95,6 +99,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request->input('role'));
         $validatedData = $request->validate([
             'name' => 'required', 'string', 'max:255',
             'address' => 'required', 'string', 'max:255',
@@ -118,6 +123,8 @@ class UserController extends Controller
             'gender'      => $request->get('gender'),
         ]);
         $user->save();
+        DB::table('model_has_roles')->where('model_id', $user->id)->delete();
+        $user->assignRole($request->input('role'));
         return redirect()->route('user.index')->with('success', 'User Updated Successfully');
     }
 
@@ -138,7 +145,8 @@ class UserController extends Controller
     {
         $user = auth()->id();
         $user = User::find($user);
-        return view('backend.users.profile',compact('user'));
+        $roles = Role::all();
+        return view('backend.users.profile',compact('user','roles'));
     }
     public function changePassword(Request $request)
     {

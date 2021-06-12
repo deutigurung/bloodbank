@@ -84,6 +84,14 @@
                                 <option value="female" @if($user->gender === 'female') ? selected @endif>Female</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <select class="form-control" name="role">
+                                @foreach($roles as $role)
+                                    <option value="{{$role->id}}" @if($user->hasRoles == $role->id) ? selected @endif>{{ $role->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                     <!-- /.card-body -->
 

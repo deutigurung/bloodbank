@@ -34,7 +34,13 @@
                                 <td>{{ $user->email }}</td>
                                 <td>{{ $user->address }}</td>
                                 <td>{{ $user->age }}</td>
-                                <td><span class="btn btn-outline-info btn-sm">{{ $user->role }}</span></td>
+                                <td>
+                                    @if(!empty($user->getRoleNames()))
+                                        @foreach($user->getRoleNames() as $v)
+                                            <label class="badge badge-success">{{ $v }}</label>
+                                        @endforeach
+                                    @endif
+                                </td>
                                 <td>{{ $user->gender }}</td>
                                 <td>{{ $user->phone }}</td>
                                 <td>

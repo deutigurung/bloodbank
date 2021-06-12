@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
@@ -66,7 +67,8 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         $role = Role::find($role->id);
-        return view('backend.roles.edit',compact('role'));
+        $permissions = Permission::all();
+        return view('backend.roles.edit',compact('role','permissions'));
     }
 
     /**
@@ -85,6 +87,7 @@ class RoleController extends Controller
         $role = Role::find($role->id);
         $role->fill($request->all());
         $role->save();
+        $role->syncPermissions($request->input('permission'));
         return redirect()->route('role.index')->with('success', 'Role Updated Successfully');
     }
 

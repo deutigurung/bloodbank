@@ -245,12 +245,11 @@ return [
             'text'        => 'Dashboard',
             'url'         => '/home',
             'icon'        => 'nav-icon fas fa-tachometer-alt',
-            //'label'       => 4,
-            //'label_color' => 'success',
         ],
         [
             'text'    => 'Donors',
             'icon'    => 'fas fa-fw fa-hand-holding-heart',
+            'can'    => 'donor_management',
             'submenu' => [
                 [
                     'text' => 'Add Donor',
@@ -265,6 +264,7 @@ return [
         [
             'text'    => 'Volunteer',
             'icon'    => 'fas fa-fw fa-user',
+            'can'    => 'volunteer_management',
             'submenu' => [
                 [
                     'text' => 'Add Volunteer',
@@ -279,6 +279,7 @@ return [
         [
             'text'    => 'Blog Management',
             'icon'    => 'fas fa-fw fa-blog',
+            'can'    => 'blog_management',
             'submenu' => [
                 [
                     'text'    => 'Blog Category',
@@ -316,8 +317,9 @@ return [
             'text'    => 'Contact List',
             'icon' => 'fas fa-fw fa-file-contract',
             'url'     => 'contacts',
+            'can'    => 'contact_management',
         ],
-        ['header' => 'User Management'],
+        ['header' => 'User Management','can'    => 'user_management',],
         [
             'text' => 'User',
             'icon' => 'fas fa-fw fa-users-cog',
@@ -352,7 +354,10 @@ return [
             'icon' => 'fas fa-fw fa-user',
             'url'        => 'profile',
         ],
-        ['header' => 'General Settings'],
+        [
+            'header' => 'General Settings',
+            'can'    => 'user_management',
+        ],
         [
             'text' => 'Location',
             'icon' => 'fas fa-fw fa-location-arrow',

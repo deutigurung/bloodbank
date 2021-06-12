@@ -175,6 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         JeroenNoten\LaravelAdminLte\AdminLteServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+
+
 
     ],
 
