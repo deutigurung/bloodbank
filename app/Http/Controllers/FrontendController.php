@@ -16,16 +16,52 @@ class FrontendController extends Controller
         return view('frontend.main',compact('blogs','users'));
     }
 
-    public function donorForm(){
-        dd('donor form');
+    public function joinForm(){
+        return view('frontend.form');
     }
 
-    public function donorStore(Request $request){
-
+    public function joinRequest(Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'permanent_address' => 'required|string|max:255',
+            'temporary_address' => 'nullable|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'dob' => 'required',
+            'age' => 'nullable',
+            'gender' => 'required',
+            'phone' => 'required|unique:users',
+            'role' => 'required',
+            'designation' => 'required|string',
+            'facebook' => 'nullable',
+            'twitter' => 'nullable',
+            'instagram' => 'nullable',
+            'linkedin' => 'nullable',
+            'blood_group' => 'required',
+            'image'           => 'nullable|mimes:jpg,jpeg,png|max:2060',
+        ]);
+        //dd($request->all());
+        $user = User::create([
+            'name'  => $request->get('name'),
+            'address'         => $request->get('permanent_address'),
+            'email'       => $request->get('email'),
+            'dob'      => $request->get('dob'),
+            'age'      => $request->get('age'),
+            'phone'      => $request->get('phone'),
+            'gender'      => $request->get('gender'),
+        ]);
+        $role = $user->assignRole('role');
+        if ($request->hasFile('image')) {
+            $file        = $request->file('image');
+            $extension   = $file->getClientOriginalExtension();
+            $destination = 'assets/uploads/'.$role;
+            $file_name   = $role.'-pic-' . $user->id . '.' . $extension;
+            $file->move($destination, $file_name);
+        }
+        return redirect()->route('volunteer.index')->with('success', ' Added Successfully');
     }
 
     public function searchBloodForm(){
-        dd('search blood form');
+        return view('frontend.blood-search');
     }
 
     public function searchBloodStore(Request $request){

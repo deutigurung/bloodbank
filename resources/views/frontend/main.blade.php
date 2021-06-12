@@ -20,7 +20,7 @@
                         sed sagittis at, sagittis quis neque. Praesent.</p>
 
                     <div class=" vbh">
-                        <div class="btn btn-success  bounceInUp"><a href="{{ route('donorForm') }}" target="_blank">Donate Now</a></div>
+                        <div class="btn btn-success  bounceInUp"><a href="{{ route('joinForm') }}" target="_blank">Join Us</a></div>
                         <div class="btn btn-success  bounceInUp"><a href="{{ route('searchBloodForm') }}" target="_blank"> Search Blood</a></div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@
                         sed sagittis at, sagittis quis neque. Praesent.</p>
 
                     <div class=" vbh">
-                        <div class="btn btn-success  bounceInUp"><a href="{{ route('donorForm') }}" target="_blank">Donate Now</a></div>
+                        <div class="btn btn-success  bounceInUp"><a href="{{ route('joinForm') }}" target="_blank">Join Us</a></div>
                         <div class="btn btn-success  bounceInUp"><a href="{{ route('searchBloodForm') }}" target="_blank"> Search Blood</a></div>
                     </div>
                 </div>
