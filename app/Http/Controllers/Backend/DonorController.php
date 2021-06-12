@@ -188,4 +188,12 @@ class DonorController extends Controller
         $user->delete();
         return redirect()->route('donor.index')->with('success', 'Donor Deleted Successfully');
     }
+
+    public function updateStatus(Request $request,$id)
+    {
+        $volunteer = Donor::find($id);
+        $volunteer->status = $request->get('status');
+        $volunteer->update();
+        return redirect()->route('donor.index')->with('success', 'Donor Status Change Successfully');
+    }
 }

@@ -200,4 +200,12 @@ class VolunteerController extends Controller
         $user->delete();
         return redirect()->route('volunteer.index')->with('success', 'Volunteer Deleted Successfully');
     }
+
+    public function updateStatus(Request $request,$id)
+    {
+        $volunteer = Volunteer::find($id);
+        $volunteer->status = $request->get('status');
+        $volunteer->update();
+        return redirect()->route('volunteer.index')->with('success', 'Volunteer Status Change Successfully');
+    }
 }

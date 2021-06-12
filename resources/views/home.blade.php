@@ -69,6 +69,80 @@
                         </div>
                         <!-- ./col -->
                     </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header border-0 dark-mode">
+                                    <h3 class="card-title">Donor Status Inactive</h3>
+                                </div>
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-striped table-valign-middle">
+                                        <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>More</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($donor_inactive as $data)
+                                        <tr>
+                                            <td>
+                                                <img src="{{ asset('assets/uploads/donors/'.$data->image) }}"
+                                                     alt="No Image" class="img-circle img-size-32 mr-2">
+                                            </td>
+                                            <td>{{ $data->user->name }}</td>
+                                            <td>{{ $data->user->email }}</td>
+                                            <td>
+                                                <a href="{{ route('donor.show',$data->id) }}" class="text-muted">
+                                                    <i class="fas fa-search"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-header border-0 dark-mode">
+                                    <h3 class="card-title">Volunteer Status Inactive</h3>
+                                </div>
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-striped table-valign-middle">
+                                        <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>More</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($volunteer_inactive as $data)
+                                            <tr>
+                                                <td>
+                                                    <img src="{{ asset('assets/uploads/volunteers/'.$data->image) }}"
+                                                         alt="No Image" class="img-circle img-size-32 mr-2">
+                                                </td>
+                                                <td>{{ $data->user->name }}</td>
+                                                <td>{{ $data->user->email }}</td>
+                                                <td>
+                                                    <a href="{{ route('volunteer.show',$data->id) }}" class="text-muted">
+                                                        <i class="fas fa-search"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

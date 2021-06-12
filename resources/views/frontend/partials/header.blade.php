@@ -34,9 +34,6 @@
                         <li>
                             <a href="{{ route('login') }}"><i class="fas fa-user"></i>Login</a>
                         </li>
-                        <li>
-                            <a href="{{ route('register') }}"><i class="fas fa-user-plus"></i>Register</a>
-                        </li>
                     </ul>
                 </div>
             </div>

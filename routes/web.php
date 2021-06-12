@@ -35,7 +35,9 @@ Route::group(['middleware' => 'auth','namespace' => 'Backend'], function () {
     Route::resource('user','UserController');
     Route::resource('location','LocationController');
     Route::resource('donor','DonorController');
+    Route::put('donor/status/{id}','DonorController@updateStatus')->name('donor.status');
     Route::resource('volunteer','VolunteerController');
+    Route::put('volunteer/status/{id}','VolunteerController@updateStatus')->name('volunteer.status');
     Route::resource('blogCategory','BlogCategoryController');
     Route::resource('blog','BlogController');
     Route::get('contacts','ContactController@index')->name('contacts.index');
