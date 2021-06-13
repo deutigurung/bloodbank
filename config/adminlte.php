@@ -319,6 +319,12 @@ return [
             'url'     => 'contacts',
             'can'    => 'contact_management',
         ],
+        [
+            'text'    => 'Emergency Request List',
+            'icon' => 'fas fa-fw fa-file',
+            'url'     => 'emergency-requests',
+            'can'    => 'contact_management',
+        ],
         ['header' => 'User Management','can'    => 'user_management',],
         [
             'text' => 'User',

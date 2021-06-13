@@ -191,9 +191,9 @@ class DonorController extends Controller
 
     public function updateStatus(Request $request,$id)
     {
-        $volunteer = Donor::find($id);
-        $volunteer->status = $request->get('status');
-        $volunteer->update();
+        $donor = Donor::find($id);
+        $donor->status = $request->get('status');
+        $donor->update();
         return redirect()->route('donor.index')->with('success', 'Donor Status Change Successfully');
     }
 }

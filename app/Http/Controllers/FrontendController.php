@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Contact;
 use App\Models\Donor;
+use App\Models\EmergencyRequest;
 use App\Models\Volunteer;
 use App\User;
 use Illuminate\Http\Request;
@@ -118,5 +119,32 @@ class FrontendController extends Controller
         ]);
         $contact = Contact::create($validatedData);
         return redirect()->back()->with('success', 'Your message has been send successfully.');
+    }
+
+    public function emergencyRequestStore(Request $request)
+    {
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'message' => 'required|string',
+            'mobile' => 'required',
+            'blood_group' => 'required',
+            'requisition_form'   => 'nullable|mimes:jpg,jpeg,png|max:2060',
+        ]);
+        $contact = EmergencyRequest::create([
+            'name'      => $request->get('name'),
+            'mobile'      => $request->get('mobile'),
+            'message'      => $request->get('message'),
+            'blood_group'      => $request->get('blood_group'),
+            'status'      => 0,
+        ]);
+        if ($request->hasFile('requisition_form')) {
+            $file        = $request->file('requisition_form');
+            $extension   = $file->getClientOriginalExtension();
+            $destination = 'assets/uploads/requisitionForm';
+            $file_name   = 'requisitionForm-pic-' . $contact->id . '.' . $extension;
+            $file->move($destination, $file_name);
+            EmergencyRequest::where('id', $contact->id)->update(['requisition_form' => $file_name ]);
+        }
+        return redirect()->back()->with('success', 'Message send successfully.We will contact you soon.');
     }
 }

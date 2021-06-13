@@ -41,7 +41,6 @@
                                 <th>Age</th>
                                 <th>Blood Group</th>
                                 <th>Gender</th>
-                                <th>Phone</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -56,7 +55,6 @@
                                     <td>{{ $data->user->age }}</td>
                                     <td>{{ $data->blood_group }}</td>
                                     <td>{{ $data->user->gender }}</td>
-                                    <td>{{ $data->user->phone }}</td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -65,8 +63,6 @@
                 </div>
             </div>
         </div>
-        @else
-            <p>Sorry ! Blood Group Donor Not Found. </p>
         @endif
     </div>
 

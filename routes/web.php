@@ -22,6 +22,7 @@ Route::post('/join-us', 'FrontendController@joinRequest')->name('joinRequest');
 Route::get('/search-blood', 'FrontendController@searchBloodForm')->name('searchBloodForm');
 Route::post('/search-blood', 'FrontendController@searchBloodStore')->name('searchBloodStore');
 Route::post('/contact-store', 'FrontendController@contactStore')->name('contactStore');
+Route::post('/emergency-request-store', 'FrontendController@emergencyRequestStore')->name('emergencyRequestStore');
 
 Auth::routes();
 
@@ -41,4 +42,6 @@ Route::group(['middleware' => 'auth','namespace' => 'Backend'], function () {
     Route::resource('blogCategory','BlogCategoryController');
     Route::resource('blog','BlogController');
     Route::get('contacts','ContactController@index')->name('contacts.index');
+    Route::get('emergency-requests','EmergencyRequestController@index')->name('emergency-requests.index');
+    Route::get('emergency-requests/status/{id}','EmergencyRequestController@status')->name('emergency-requests.status');
 });

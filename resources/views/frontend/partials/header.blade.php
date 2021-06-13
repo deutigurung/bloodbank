@@ -82,3 +82,4 @@
     </div>
 {{--    <div style="display: block; width: 1349px; height: 84px; float: none;"></div>--}}
 </header>
+@include('layouts.notification')

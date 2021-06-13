@@ -26,7 +26,7 @@
                         <i class="fas fa-phone"></i>
                     </div>
                     <div class="detail">
-                        <p>+91 9751791203</p>
+                        <p>+977 9851791203</p>
                     </div>
                 </div>
             </div>
@@ -37,21 +37,19 @@
                         <li>Home</li>
                         <li>About Us</li>
                         <li>Contacts</li>
-                        <li>Pricing</li>
                         <li>Gallery</li>
                         <li>Features</li>
+                        <li></li>
 
                     </ul>
                 </div>
                 <div class="row no-margin mt-1">
-                    <h2 class="m-t-2">More Products</h2>
+                    <h2 class="m-t-2"></h2>
                     <ul>
-                        <li>Forum PHP Script</li>
-                        <li>Edu Smart</li>
-                        <li>Smart Event</li>
-                        <li>Smart School</li>
-
-
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </div>
 
@@ -61,7 +59,6 @@
                     <div class="form-title">
                         <h4>Quick Message</h4>
                     </div>
-                    @include('layouts.notification')
                     <form method="post" action="{{ route('contactStore') }}">
                         @csrf
                         <div class="form-body">

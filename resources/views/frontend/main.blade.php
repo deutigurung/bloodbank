@@ -15,10 +15,7 @@
                 <img class="d-block w-100" src="{{ asset('assets/images/slide-02.jpg') }}" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5 class=" bounceInDown">Donate Blood &amp; Save a Life</h5>
-                    <p class=" bounceInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, <br>
-                        aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis <br>
-                        sed sagittis at, sagittis quis neque. Praesent.</p>
-
+                    <p class=" bounceInLeft">WHO - "If 1% to 3% of a country's population donate blood, it would be sufficient for the country's needs."</p>
                     <div class=" vbh">
                         <div class="btn btn-success  bounceInUp"><a href="{{ route('joinForm') }}" target="_blank">Join Us</a></div>
                         <div class="btn btn-success  bounceInUp"><a href="{{ route('searchBloodForm') }}" target="_blank"> Search Blood</a></div>
@@ -30,9 +27,8 @@
                 <img class="d-block w-100" src="{{ asset('assets/images/slide-03.jpg') }}" alt="Third slide">
                 <div class="carousel-caption vdg-cur d-none d-md-block">
                     <h5 class=" bounceInDown">Donate Blood &amp; Save a Life</h5>
-                    <p class=" bounceInLeft">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam justo neque, <br>
-                        aliquet sit amet elementum vel, vehicula eget eros. Vivamus arcu metus, mattis <br>
-                        sed sagittis at, sagittis quis neque. Praesent.</p>
+                    <p class=" bounceInLeft">To give blood you need neither extra strength nor extra food, and you will save a life. <br>
+                        If you're a blood donor, you're a hero to someone, somewhere, who received your gracious gift of life.</p>
 
                     <div class=" vbh">
                         <div class="btn btn-success  bounceInUp"><a href="{{ route('joinForm') }}" target="_blank">Join Us</a></div>
@@ -42,12 +38,12 @@
             </div>
 
         </div>
-        <a class="carousel-control-prev" href="https://www.smarteyeapps.com/demo/blood-donation-charity-website-tempalte/#carouselExampleIndicators"
+        <a class="carousel-control-prev" href="{{ route('frontend') }}"
            role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="https://www.smarteyeapps.com/demo/blood-donation-charity-website-tempalte/#carouselExampleIndicators"
+        <a class="carousel-control-next" href="{{ route('frontend') }}"
            role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
@@ -62,31 +58,114 @@
     <div class="container">
         <div class="row session-title">
             <h2>About Us</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has</p>
+            <p></p>
         </div>
         <div class="row">
             <div class="col-md-6 text">
-                <h2>About Blood Doners</h2>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-                    since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only
-                    five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                <p> It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some formhumour, or
-                    randomised words which don't look even slightly believable. If you are going to use a passage. industry's standard dummy has survived
-                    not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                <p>Industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                    specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially
-                    unchanged.</p>
+                <h2>Welcome to Blood Bank</h2>
+                <p>Blood Bank is an online blood bank service that works to encourage and inspire people to donate blood and provide fresh blood to needy ones to save their life.
+                    Our main objective is to act as a bridge between the blood donor and patient. Welfare of the society is our motto.</p>
+                <p> This website can match you with a donor near you in fraction of second. You can also register as a donor in this site and save someone’s life. The need is constant, and your contribution is important for a healthy and reliable blood supply.</p>
+                <h2>Why Donate Blood?</h2>
+                <p><i class="fa fa-info-circle"></i> Till date there no substitute for blood. Only donated blood can provide adequate supply of blood to save life of those who need it. You give a second chance to someone unknown to you. Sometimes it one who need blood could be a friend, family member or yourself.</p>
+                <p><i class="fa fa-info-circle"></i> Whenever you donate blood, the body can easily replenish the lost blood within 24-48 hours. Hence you are welcoming new blood into your body. In that way there no loss.</p>
+                <p><i class="fa fa-info-circle"></i> Donating blood helps to maintain iron content in blood.</p>
+                <p><i class="fa fa-info-circle"></i> Whenever you donate you will be losing excess cholesterol accumulated in blood. Hence reducing the proximity of Heart Attacks.</p>
+                <p><i class="fa fa-info-circle"></i> A one unit of donated blood can save upto 3 people when supplied into three different components as Red blood cells, Fresh frozen plasma and Platelet concentrate/platelet rich plasma.</p>
+                <p><i class="fa fa-info-circle"></i> A self fulfillment for a lifetime of saving a person life during emergency.</p>
             </div>
             <div class="col-md-6 image">
+                <div class="" style="margin-left: 170px;">
+                    <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-default">
+                        Emergency Blood Request
+                    </button>
+                </div>
                 <img src="{{ asset('assets/images/about.jpg') }}" alt="">
             </div>
         </div>
     </div>
 </section>
 
+<div class="modal fade" id="modal-default">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Emergency Blood Request</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form role="form" class="form" method="post" action="{{ route('emergencyRequestStore') }}" enctype="multipart/form-data">
+                <div class="modal-body">
+                    @csrf
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="Enter Full Name" autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="mobile">Mobile</label>
+                                <input id="mobile" type="text" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" name="mobile" value="{{ old('mobile') }}" placeholder="Enter Mobile Number" autofocus>
+                                @if ($errors->has('mobile'))
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('mobile') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="blood_group">Blood Group</label>
+                                <select name="blood_group"  id="blood_group" class="form-control select2">
+                                    <option value="o+">O+</option>
+                                    <option value="o-">O-</option>
+                                    <option value="b+">B+</option>
+                                    <option value="b-">B-</option>
+                                    <option value="a+">A+</option>
+                                    <option value="a-">A-</option>
+                                    <option value="ab+">AB+</option>
+                                    <option value="ab-">AB-</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="requisition_form">Requisition form </label>
+                                <input type="file" name="requisition_form" class="form-control">
+                            </div>
+                        </div>
 
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea name="message" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}" placeholder="Patient Details With Location and Problem"></textarea>
+                                @if ($errors->has('message'))
+                                    <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('message') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Request Blood</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 <!-- ################# Gallery Start Here #######################--->
 
 <div id="gallery" class="gallery container-fluid">
