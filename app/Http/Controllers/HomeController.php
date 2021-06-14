@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Donor;
+use App\Models\EmergencyRequest;
 use App\Models\Volunteer;
 use App\User;
 use Illuminate\Http\Request;
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $total_blogs = Blog::count();
         $donor_inactive = Donor::where('status','=',0)->get();
         $volunteer_inactive = Volunteer::where('status','=',0)->get();
-        return view('home',compact('total_users','total_blogs','donor_inactive','volunteer_inactive'));
+        $request_blood = EmergencyRequest::where('status','=',0)->count();
+        return view('home',compact('total_users','total_blogs','donor_inactive','volunteer_inactive','request_blood'));
     }
 }

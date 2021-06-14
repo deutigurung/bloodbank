@@ -329,6 +329,7 @@ return [
         [
             'text' => 'User',
             'icon' => 'fas fa-fw fa-users-cog',
+            'can'    => 'user_management',
             'submenu' => [
                 [
                     'text' => 'Add User',
@@ -343,6 +344,7 @@ return [
         [
             'text' => 'Role',
             'icon' => 'fas fa-fw fa-user-tag',
+            'can'    => 'user_management',
             'submenu' => [
                 [
                     'text' => 'Add Role',
@@ -367,6 +369,7 @@ return [
         [
             'text' => 'Location',
             'icon' => 'fas fa-fw fa-location-arrow',
+            'can'    => 'user_management',
             'submenu' => [
                 [
                     'text' => 'Add Location',
@@ -377,16 +380,6 @@ return [
                     'url'  => 'location',
                 ],
             ],
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
         ],
     ],
 
