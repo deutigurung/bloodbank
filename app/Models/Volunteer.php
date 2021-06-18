@@ -12,7 +12,7 @@ class Volunteer extends Model
     protected $fillable =  [
         'image',
         'designation',
-        'blood_group',
+        'blood_group','blood_id',
         'temporary_address',
         'permanent_address',
         'location_id',

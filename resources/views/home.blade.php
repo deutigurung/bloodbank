@@ -11,7 +11,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    @if(auth()->user()->can('user_management'))
+                    @if(auth()->user()->can('dashboard_management'))
                     <div class="row">
                         <div class="col-lg-3 col-6">
                             <!-- small box -->

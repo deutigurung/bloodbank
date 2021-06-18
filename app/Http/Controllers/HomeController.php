@@ -35,4 +35,27 @@ class HomeController extends Controller
         $request_blood = EmergencyRequest::where('status','=',0)->count();
         return view('home',compact('total_users','total_blogs','donor_inactive','volunteer_inactive','request_blood'));
     }
+
+    public function bloodStock()
+    {
+        $this->data['o_positive'] = Donor::where('blood_group','=','o+')->where('status','=',1)->count();
+        $this->data['o_negative'] = Donor::where('blood_group','=','o-')->where('status','=',1)->count();
+        $this->data['b_positive'] = Donor::where('blood_group','=','b+')->where('status','=',1)->count();
+        $this->data['b_negative'] = Donor::where('blood_group','=','b-')->where('status','=',1)->count();
+        $this->data['a_positive'] = Donor::where('blood_group','=','a+')->where('status','=',1)->count();
+        $this->data['a_negative'] = Donor::where('blood_group','=','a-')->where('status','=',1)->count();
+        $this->data['ab_positive'] = Donor::where('blood_group','=','ab+')->where('status','=',1)->count();
+        $this->data['ab_negative'] = Donor::where('blood_group','=','ab-')->where('status','=',1)->count();
+
+        $this->data['o_positive_donate'] = EmergencyRequest::where('blood_group','=','o+')->where('status','=',1)->count();
+        $this->data['o_negative_donate'] = EmergencyRequest::where('blood_group','=','o-')->where('status','=',1)->count();
+        $this->data['b_positive_donate'] = EmergencyRequest::where('blood_group','=','b+')->where('status','=',1)->count();
+        $this->data['b_negative_donate'] = EmergencyRequest::where('blood_group','=','b-')->where('status','=',1)->count();
+        $this->data['a_positive_donate'] = EmergencyRequest::where('blood_group','=','a+')->where('status','=',1)->count();
+        $this->data['a_negative_donate'] = EmergencyRequest::where('blood_group','=','a-')->where('status','=',1)->count();
+        $this->data['ab_positive_donate'] = EmergencyRequest::where('blood_group','=','ab+')->where('status','=',1)->count();
+        $this->data['ab_negative_donate'] = EmergencyRequest::where('blood_group','=','ab-')->where('status','=',1)->count();
+
+        return view('backend.bloodStock',$this->data);
+    }
 }

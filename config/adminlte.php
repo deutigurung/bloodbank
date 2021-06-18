@@ -356,6 +356,13 @@ return [
                 ],
             ],
         ],
+        ['header' => 'Blood Stock Management', 'can'  => 'blood_management',],
+        [
+            'text' => 'Blood',
+            'icon' => 'fas fa-fw fa-hand-holding-water',
+            'url'  => 'blood-stock',
+            'can'  => 'blood_management',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

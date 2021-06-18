@@ -21,6 +21,8 @@ class PermissionTableSeeder extends Seeder
         Permission::create(['name' => 'volunteer_management']);
         Permission::create(['name' => 'user_management']);
         Permission::create(['name' => 'contact_management']);
+        Permission::create(['name' => 'dashboard_management']);
+        Permission::create(['name' => 'blood_management']);
 
     }
 }

@@ -27,6 +27,7 @@ Route::post('/emergency-request-store', 'FrontendController@emergencyRequestStor
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('blood-stock','HomeController@bloodStock')->name('bloodStock');
 
 //backend url
 Route::group(['middleware' => 'auth','namespace' => 'Backend'], function () {

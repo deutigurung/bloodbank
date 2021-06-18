@@ -13,7 +13,7 @@ class EmergencyRequest extends Model
         'message',
         'mobile',
         'requisition_form',
-        'blood_group',
+        'blood_group','blood_id',
         'status'
     ];
 
