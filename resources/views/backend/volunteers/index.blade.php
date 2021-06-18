@@ -38,7 +38,7 @@
                                     Temporary: {{ $volunteer->temporary_address }}
                                 </td>
                                 <td>{{ $volunteer->user->age }}</td>
-                                <td>{{ $volunteer->blood_group }}</td>
+                                <td>{{ ucfirst($volunteer->blood->name ?? '') }}</td>
                                 <td>{{ $volunteer->user->gender }}</td>
                                 <td>{{ $volunteer->user->phone }}</td>
                                 <td>{{ $volunteer->designation }}</td>

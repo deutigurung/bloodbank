@@ -38,7 +38,7 @@
                                     Temporary: {{ $donor->temporary_address }}
                                 </td>
                                 <td>{{ $donor->user->age }}</td>
-                                <td>{{ $donor->blood_group }}</td>
+                                <td>{{ ucfirst($donor->blood->name ?? '') }}</td>
                                 <td>{{ $donor->user->gender }}</td>
                                 <td>{{ $donor->user->phone }}</td>
                                 <td>{{ $donor->father_name ?: $donor->mother_name}}</td>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blood;
 use App\Models\Donor;
 use App\Models\Location;
 use App\User;
@@ -30,7 +31,8 @@ class DonorController extends Controller
     public function create()
     {
         $locations = Location::get();
-        return view('backend.donors.create',compact('locations'));
+        $bloods = Blood::all();
+        return view('backend.donors.create',compact('locations','bloods'));
     }
 
     /**
@@ -82,6 +84,7 @@ class DonorController extends Controller
             'father_name'      => $request->get('father_name'),
             'mother_name'      => $request->get('mother_name'),
             'blood_group'      => $request->get('blood_group'),
+            'blood_id'      => $request->get('blood_group'),
             'location_id'      => $request->get('location'),
             'user_id'      => $user->id,
             'image'    => $request->hasFile('image') ? $file_name : null,
@@ -112,7 +115,8 @@ class DonorController extends Controller
     {
         $donor = Donor::find($donor->id);
         $locations = Location::get();
-        return view('backend.donors.edit',compact('donor','locations'));
+        $bloods = Blood::all();
+        return view('backend.donors.edit',compact('donor','locations','bloods'));
     }
 
     /**
@@ -157,6 +161,7 @@ class DonorController extends Controller
             'temporary_address' => $request->temporary_address,
             'permanent_address' => $request->permanent_address,
             'blood_group'       => $request->blood_group,
+            'blood_id'       => $request->blood_group,
             'location_id'       => $request->location,
             'image'    => $request->hasFile('image') ? $file_name : $donor->image,
 
@@ -170,7 +175,6 @@ class DonorController extends Controller
             'address' => $request->permanent_address,
             'gender' => $request->gender,
         ]);
-        $user->assignRole('donor');
         return redirect()->route('donor.index')->with('success', 'Donor Update Successfully');
     }
 

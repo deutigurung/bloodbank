@@ -110,14 +110,9 @@
                                 <div class="form-group">
                                     <label for="blood_group">Blood Group</label>
                                     <select name="blood_group"  id="blood_group" class="form-control select2">
-                                        <option value="o+" @if($volunteer->blood_group == "o+") ? selected @endif>O+</option>
-                                        <option value="o-" @if($volunteer->blood_group == "o-") ? selected @endif>O-</option>
-                                        <option value="b+" @if($volunteer->blood_group == "b+") ? selected @endif>B+</option>
-                                        <option value="b-" @if($volunteer->blood_group == "b-") ? selected @endif>B-</option>
-                                        <option value="a+" @if($volunteer->blood_group == "a+") ? selected @endif>A+</option>
-                                        <option value="a-" @if($volunteer->blood_group == "a-") ? selected @endif>A-</option>
-                                        <option value="ab+" @if($volunteer->blood_group == "ab+") ? selected @endif>AB+</option>
-                                        <option value="ab-" @if($volunteer->blood_group == "ab-") ? selected @endif>AB-</option>
+                                        @foreach($bloods as $blood)
+                                            <option value="{{ $blood->id }}" @if($volunteer->blood_id == $blood->id) ? selected @endif>{{ ucfirst($blood->name) }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

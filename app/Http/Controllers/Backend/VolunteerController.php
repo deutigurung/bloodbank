@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blood;
 use App\Models\Location;
 use App\Models\Volunteer;
 use App\User;
@@ -30,7 +31,8 @@ class VolunteerController extends Controller
     public function create()
     {
         $locations = Location::get();
-        return view('backend.volunteers.create',compact('locations'));
+        $bloods = Blood::all();
+        return view('backend.volunteers.create',compact('locations','bloods'));
     }
 
     /**
@@ -119,7 +121,8 @@ class VolunteerController extends Controller
     {
         $volunteer = Volunteer::find($volunteer->id);
         $locations = Location::get();
-        return view('backend.volunteers.edit',compact('volunteer','locations'));
+        $bloods = Blood::all();
+        return view('backend.volunteers.edit',compact('volunteer','locations','bloods'));
     }
 
     /**
@@ -170,6 +173,7 @@ class VolunteerController extends Controller
             'temporary_address' => $request->temporary_address,
             'permanent_address' => $request->permanent_address,
             'blood_group'       => $request->blood_group,
+            'blood_id'       => $request->blood_group,
             'location_id'       => $request->location,
             'image'    => $request->hasFile('image') ? $file_name : $volunteer->image,
         ]);
@@ -182,7 +186,6 @@ class VolunteerController extends Controller
             'address' => $request->permanent_address,
             'gender' => $request->gender,
         ]);
-        $user->assignRole('volunteer');
         return redirect()->route('volunteer.index')->with('success', 'Volunteer Update Successfully');
     }
 

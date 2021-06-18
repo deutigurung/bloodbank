@@ -120,14 +120,9 @@
                                 <div class="form-group">
                                     <label for="blood_group">Blood Group</label>
                                     <select name="blood_group"  id="blood_group" class="form-control select2">
-                                        <option value="o+">O+</option>
-                                        <option value="o-">O-</option>
-                                        <option value="b+">B+</option>
-                                        <option value="b-">B-</option>
-                                        <option value="a+">A+</option>
-                                        <option value="a-">A-</option>
-                                        <option value="ab+">AB+</option>
-                                        <option value="ab-">AB-</option>
+                                        @foreach($bloods as $blood)
+                                            <option value="{{ $blood->id }}">{{ ucfirst($blood->name) }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
