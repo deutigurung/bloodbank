@@ -325,6 +325,18 @@ return [
             'url'     => 'emergency-requests',
             'can'    => 'contact_management',
         ],
+        [
+            'text'    => 'Blood Donation',
+            'icon' => 'fas fa-fw fa-file',
+            'url'     => 'blood-donate',
+            'can'    => 'contact_management',
+        ],
+        [
+            'text'    => 'Blood Seeker',
+            'icon' => 'fas fa-fw fa-file',
+            'url'     => 'blood-seeker',
+            'can'    => 'contact_management',
+        ],
         ['header' => 'User Management','can'    => 'user_management',],
         [
             'text' => 'User',
