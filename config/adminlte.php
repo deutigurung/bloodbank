@@ -321,21 +321,57 @@ return [
         ],
         [
             'text'    => 'Emergency Request List',
-            'icon' => 'fas fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-hand-holding-medical',
             'url'     => 'emergency-requests',
             'can'    => 'contact_management',
         ],
         [
             'text'    => 'Blood Donation',
-            'icon' => 'fas fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-hand-holding-heart',
             'url'     => 'blood-donate',
             'can'    => 'contact_management',
+            'submenu' => [
+                [
+                    'text' => 'Add Donation',
+                    'url'  => 'blood-donate/create',
+                ],
+                [
+                    'text'    => 'List Donation',
+                    'url'     => 'blood-donate',
+                ],
+            ],
         ],
         [
             'text'    => 'Blood Seeker',
-            'icon' => 'fas fa-fw fa-file',
+            'icon' => 'fas fa-fw fa-user-injured',
             'url'     => 'blood-seeker',
             'can'    => 'contact_management',
+            'submenu' => [
+                [
+                    'text' => 'Add Seeker',
+                    'url'  => 'blood-seeker/create',
+                ],
+                [
+                    'text'    => 'List Seeker',
+                    'url'     => 'blood-seeker',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'Volunteer Campaign',
+            'icon' => 'fas fa-fw fa-search-location',
+            'url'     => 'volunteer-campaign',
+            'can'    => 'contact_management',
+            'submenu' => [
+                [
+                    'text' => 'Add Campaign',
+                    'url'  => 'volunteer-campaign/create',
+                ],
+                [
+                    'text'    => 'List Campaign',
+                    'url'     => 'volunteer-campaign',
+                ],
+            ],
         ],
         ['header' => 'User Management','can'    => 'user_management',],
         [

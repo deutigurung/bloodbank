@@ -49,4 +49,6 @@ Route::group(['middleware' => 'auth','namespace' => 'Backend'], function () {
     Route::resource('blood-donate','BloodDonateController');
     Route::resource('blood-seeker','BloodSeekerController');
 
+    Route::resource('volunteer-campaign','CampaignController');
+
 });
